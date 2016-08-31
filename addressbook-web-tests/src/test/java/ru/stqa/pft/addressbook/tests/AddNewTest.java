@@ -1,4 +1,4 @@
-package ru.stqa.pft.addressbook;
+package ru.stqa.pft.addressbook.tests;
 
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.AfterMethod;
@@ -8,27 +8,10 @@ import java.util.concurrent.TimeUnit;
 
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.*;
+import ru.stqa.pft.addressbook.model.ContractData;
 
-public class AddNew {
+public class AddNewTest extends TestBase{
     FirefoxDriver wd;
-    
-    @BeforeMethod
-    public void setUp() throws Exception {
-        wd = new FirefoxDriver();
-        wd.manage().timeouts().implicitlyWait(60, TimeUnit.SECONDS);
-        login(new LoginSystem("admin", "secret"));
-    }
-
-    private void login(LoginSystem loginSystem) {
-        wd.get("http://localhost/addressbook/");
-        wd.findElement(By.name("user")).click();
-        wd.findElement(By.name("user")).clear();
-        wd.findElement(By.name("user")).sendKeys(loginSystem.getUsername());
-        wd.findElement(By.name("pass")).click();
-        wd.findElement(By.name("pass")).clear();
-        wd.findElement(By.name("pass")).sendKeys(loginSystem.getPassword());
-        wd.findElement(By.xpath("//form[@id='LoginForm']/input[3]")).click();
-    }
 
     @Test
     public void testAddNew() {
