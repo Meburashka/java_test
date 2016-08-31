@@ -24,6 +24,12 @@ public class HelperBase {
     wd.findElement(locator).sendKeys(text);
   }
 
+  protected void comboBox(By locator) {
+    if (!wd.findElement(locator).isSelected()) {
+      click(locator);
+    }
+  }
+
   public boolean isAlertPresent() {
     try {
       wd.switchTo().alert();
