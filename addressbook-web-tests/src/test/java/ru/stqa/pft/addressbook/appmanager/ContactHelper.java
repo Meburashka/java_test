@@ -8,7 +8,6 @@ import ru.stqa.pft.addressbook.model.ContractData;
  * Created by SorEA on 31.08.2016.
  */
 public class ContactHelper extends HelperBase{
-  private FirefoxDriver wd;
 
   public ContactHelper(FirefoxDriver wd) {
     super(wd);
@@ -44,5 +43,14 @@ public class ContactHelper extends HelperBase{
 
   public void submitContactCreation() {
     click(By.xpath("//div[@id='content']/form/input[21]"));
+  }
+
+  public void selectContact() {
+    click(By.name("selected[]"));
+  }
+
+  public void deleteSelectedContract() {
+    click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
+    wd.switchTo().alert().accept();
   }
 }
