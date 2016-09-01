@@ -1,8 +1,11 @@
 package ru.stqa.pft.addressbook.appmanager;
 
 import org.openqa.selenium.By;
+import org.openqa.selenium.NoSuchElementException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
+import org.openqa.selenium.support.ui.Select;
+import org.testng.Assert;
 import ru.stqa.pft.addressbook.model.ContractData;
 
 /**
@@ -18,7 +21,7 @@ public class ContactHelper extends HelperBase{
     click(By.linkText("add new"));
   }
 
-  public void fillContactForm(ContractData contractData) {
+  public void fillContactForm(ContractData contractData, boolean creation) {
     type(By.name("firstname"), contractData.getFirstname());
     type(By.name("middlename"), contractData.getMiddlename());
     type(By.name("lastname"), contractData.getLastname());
@@ -37,6 +40,13 @@ public class ContactHelper extends HelperBase{
     comboBox(By.xpath("//div[@id='content']/form/select[1]//option[23]"));
     comboBox(By.xpath("//div[@id='content']/form/select[2]//option[11]"));
     type(By.name("byear"), contractData.getByear());
+
+    if (creation) {
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contractData.getGroup());
+    } else {
+      Assert.assertFalse(isElementPresent(By.name("new_group")));
+    }
+
     type(By.name("address2"), contractData.getAddress2());
     type(By.name("phone2"), contractData.getPhone2());
     type(By.name("notes"), contractData.getNotes());
