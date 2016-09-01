@@ -72,4 +72,22 @@ public class ContactHelper extends HelperBase{
   public void submitContactModification() {
     click(By.xpath("//div[@id='content']/form[1]/input[22]"));
   }
+
+  public void returnToHomePageContact() {
+    if (isElementPresent(By.id("maintable"))) {
+      return;
+    }
+    click(By.linkText("home page"));
+  }
+
+  public void createContract(ContractData contract, boolean b) {
+    initContactCreation();
+    fillContactForm(contract, b);
+    submitContactCreation();
+    returnToHomePageContact();
+  }
+
+  public boolean isThereAContract() {
+    return isElementPresent(By.name("selected[]"));
+  }
 }

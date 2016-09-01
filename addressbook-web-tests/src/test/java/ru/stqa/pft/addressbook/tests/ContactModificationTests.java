@@ -10,10 +10,16 @@ public class ContactModificationTests extends TestBase {
 
   @Test
   public void testContactModification() {
+    if (! app.getContactHelper().isThereAContract()) {
+      app.getContactHelper().createContract(new ContractData("Екатерина", "Алексеевна", "Сорокина", "Mebur", "Title", "BSS",
+              "Москва, Нагорный проезд, дом 5", "222222", "9265554544", "333333", "333334", "k@mail.ru", "s@mail.ru",
+              "a@mail.ru", "https://www.yandex.ru/", "1984", "test1", "Москва", "1222222", "Примечания"), true);
+    }
     app.getContactHelper().selectContact();
     app.getContactHelper().initContactModification();
-    app.getContactHelper().fillContactForm(new ContractData("Екатерина1", "Алексеевна1", "Сорокина1", "Mebur", "Title", "BSS", "Москва, Нагорный проезд, дом 5", "222222", "9265554544", "333333", "333334", "k@mail.ru", "s@mail.ru", "a@mail.ru", "https://www.yandex.ru/", "1984", null, "Москва", "1222222", "Примечания"), false);
+    app.getContactHelper().fillContactForm(new ContractData("Екатерина1", null, null, null, null, null, null, null, null, null,
+            null, null, null, null, null, null, null, "Москва1", null, "Примечания1"), false);
     app.getContactHelper().submitContactModification();
-    app.getNavigationHelper().returnToHomePage();
+    app.getContactHelper().returnToHomePageContact();
   }
 }
