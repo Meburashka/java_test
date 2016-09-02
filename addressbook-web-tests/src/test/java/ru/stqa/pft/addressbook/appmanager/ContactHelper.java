@@ -80,9 +80,9 @@ public class ContactHelper extends HelperBase{
     click(By.linkText("home page"));
   }
 
-  public void createContract(ContractData contract, boolean b) {
+  public void createContract(ContractData contract) {
     initContactCreation();
-    fillContactForm(contract, b);
+    fillContactForm(contract, true);
     submitContactCreation();
     returnToHomePageContact();
   }
