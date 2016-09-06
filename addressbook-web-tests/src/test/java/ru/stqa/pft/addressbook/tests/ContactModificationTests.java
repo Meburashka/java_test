@@ -17,7 +17,7 @@ public class ContactModificationTests extends TestBase {
               "a@mail.ru", "https://www.yandex.ru/", "1984", "test1", "Москва", "1222222", "Примечания"));
     }
     int before = app.getContactHelper().getContactCount();
-    app.getContactHelper().selectContact();
+    app.getContactHelper().selectContact(before - 1);
     app.getContactHelper().initContactModification();
     app.getContactHelper().fillContactForm(new ContractData("Екатерина1", null, null, null, null, null, null, null, null, null,
             null, null, null, null, null, null, null, "Москва1", null, "Примечания1"), false);

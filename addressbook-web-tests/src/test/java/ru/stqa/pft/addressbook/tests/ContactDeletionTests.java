@@ -18,8 +18,9 @@ public class ContactDeletionTests extends TestBase {
               "a@mail.ru", "https://www.yandex.ru/", "1984", "test1", "Москва", "1222222", "Примечания"));
     }
     int before = app.getContactHelper().getContactCount();
-    app.getContactHelper().selectContact();
+    app.getContactHelper().selectContact(before - 1);
     app.getContactHelper().deleteSelectedContract();
+    app.getNavigationHelper().returnToHomePage();
     int after = app.getContactHelper().getContactCount();
     Assert.assertEquals(after, before - 1);
   }
