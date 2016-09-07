@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.ui.Select;
 import org.testng.Assert;
-import ru.stqa.pft.addressbook.model.ContractData;
+import ru.stqa.pft.addressbook.model.ContactData;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -13,7 +13,7 @@ import java.util.List;
 /**
  * Created by SorEA on 31.08.2016.
  */
-public class ContactHelper extends HelperBase{
+public class ContactHelper extends HelperBase {
 
   public ContactHelper(WebDriver wd) {
     super(wd);
@@ -23,15 +23,15 @@ public class ContactHelper extends HelperBase{
     click(By.linkText("add new"));
   }
 
-  public void fillContactForm(ContractData contractData, boolean creation) {
-    type(By.name("firstname"), contractData.getFirstname());
-    type(By.name("middlename"), contractData.getMiddlename());
-    type(By.name("lastname"), contractData.getLastname());
-    type(By.name("nickname"), contractData.getNickname());
-    type(By.name("title"), contractData.getTitle());
+  public void fillContactForm(ContactData contactData, boolean creation) {
+    type(By.name("firstname"), contactData.getFirstName());
+    type(By.name("middlename"), contactData.getMiddleName());
+    type(By.name("lastname"), contactData.getLastName());
+    type(By.name("nickname"), contactData.getNickName());
+    type(By.name("title"), contactData.getTitle());
 
     if (creation) {
-      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contractData.getGroup());
+      new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
     }
@@ -45,13 +45,13 @@ public class ContactHelper extends HelperBase{
     wd.findElements(By.name("selected[]")).get(index).click();
   }
 
-  public void deleteSelectedContract() {
+  public void deleteSelectedContact() {
     click(By.xpath("//div[@id='content']/form[2]/div[2]/input"));
     wd.switchTo().alert().accept();
   }
 
-  public void initContactModification() {
-    click(By.xpath("//table[@id='maintable']/tbody/tr[2]/td[8]/a/img"));
+  public void initContactModification(int index) {
+    wd.findElements(By.xpath("//*[@src='icons/pencil.png']")).get(index).click();
   }
 
   public void submitContactModification() {
@@ -65,14 +65,14 @@ public class ContactHelper extends HelperBase{
     click(By.linkText("home page"));
   }
 
-  public void createContract(ContractData contract) {
+  public void createContact(ContactData contact) {
     initContactCreation();
-    fillContactForm(contract, true);
+    fillContactForm(contact, true);
     submitContactCreation();
     returnToHomePageContact();
   }
 
-  public boolean isThereAContract() {
+  public boolean isThereAContact() {
     return isElementPresent(By.name("selected[]"));
   }
 
@@ -80,13 +80,15 @@ public class ContactHelper extends HelperBase{
     return wd.findElements(By.name("selected[]")).size();
   }
 
-  public List<ContractData> getContactList() {
-    List<ContractData> contacts = new ArrayList<ContractData>();
+  public List<ContactData> getContactList() {
+    List<ContactData> contacts = new ArrayList<ContactData>();
     List<WebElement> elements = wd.findElements(By.cssSelector("tr[name = entry]"));
     for (WebElement element : elements) {
-      String firstname = element.getText();
-      ContractData contract = new ContractData(firstname, null, null, null, null, null);
-      contacts.add(contract);
+      String firstName = element.findElement(By.cssSelector("td:nth-of-type(3)")).getText();
+      String lastName = element.findElement(By.cssSelector("td:nth-of-type(2)")).getText();
+      int id = Integer.parseInt(element.findElement(By.tagName("input")).getAttribute("value"));
+      ContactData contact = new ContactData(id, firstName, null, lastName, null, null, null);
+      contacts.add(contact);
     }
     return contacts;
   }
