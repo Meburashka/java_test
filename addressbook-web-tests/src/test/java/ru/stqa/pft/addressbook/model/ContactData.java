@@ -1,64 +1,75 @@
 package ru.stqa.pft.addressbook.model;
 
 public class ContactData {
-  private int id;
-  private final String firstName;
-  private final String middleName;
-  private final String lastName;
-  private final String nickName;
-  private final String title;
+  private int id = Integer.MAX_VALUE;
+  private String firstName;
+  private String middleName;
+  private String lastName;
+  private String nickName;
+  private String title;
   private String group;
-
-  public ContactData(String firstName, String middleName, String lastName, String nickName, String title, String group) {
-    this.id = Integer.MAX_VALUE;
-    this.firstName = firstName;
-    this.middleName = middleName;
-    this.lastName = lastName;
-    this.nickName = nickName;
-    this.title = title;
-    this.group = group;
-  }
-
-  public ContactData(int id, String firstName, String middleName, String lastName, String nickName, String title, String group) {
-    this.id = id;
-    this.firstName = firstName;
-    this.middleName = middleName;
-    this.lastName = lastName;
-    this.nickName = nickName;
-    this.title = title;
-    this.group = group;
-  }
 
   public int getId() {
     return id;
   }
 
-  public void setId(int id) {
+  public ContactData withId(int id) {
     this.id = id;
+    return this;
   }
 
   public String getFirstName() {
     return firstName;
   }
 
+  public ContactData withFirstName(String firstName) {
+    this.firstName = firstName;
+    return this;
+  }
+
   public String getMiddleName() {
     return middleName;
+  }
+
+  public ContactData withMiddleName(String middleName) {
+    this.middleName = middleName;
+    return this;
   }
 
   public String getLastName() {
     return lastName;
   }
 
+  public ContactData withLastName(String lastName) {
+    this.lastName = lastName;
+    return this;
+  }
+
   public String getNickName() {
     return nickName;
+  }
+
+  public ContactData withNickName(String nickName) {
+    this.nickName = nickName;
+    return this;
   }
 
   public String getTitle() {
     return title;
   }
 
+  public ContactData withTitle(String title) {
+    this.title = title;
+    return this;
+  }
+
   public String getGroup() {
     return group;
+  }
+
+  public ContactData withGroup(String group) {
+    this.group = group;
+    return this;
   }
 
   @Override
