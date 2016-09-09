@@ -7,6 +7,9 @@ public class ContactData {
   private String lastName;
   private String nickName;
   private String title;
+  private String homePhone;
+  private String mobilePhone;
+  private String workPhone;
   private String group;
 
   public int getId() {
@@ -60,6 +63,33 @@ public class ContactData {
 
   public ContactData withTitle(String title) {
     this.title = title;
+    return this;
+  }
+
+  public String getHomePhone() {
+    return homePhone;
+  }
+
+  public ContactData withHomePhone(String home) {
+    this.homePhone = home;
+    return this;
+  }
+
+  public String getMobilePhone() {
+    return mobilePhone;
+  }
+
+  public ContactData withMobilePhone(String mobile) {
+    this.mobilePhone = mobile;
+    return this;
+  }
+
+  public String getWorkPhone() {
+    return workPhone;
+  }
+
+  public ContactData withWorkPhone(String work) {
+    this.workPhone = work;
     return this;
   }
 

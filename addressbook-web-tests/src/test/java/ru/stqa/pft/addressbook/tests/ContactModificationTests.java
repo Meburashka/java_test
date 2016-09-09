@@ -20,8 +20,8 @@ public class ContactModificationTests extends TestBase {
     app.goTo().homePage();
     if (app.contact().all().size() == 0) {
       app.contact().create(new ContactData()
-              .withFirstName("Екатерина6").withMiddleName("Алексеевна").withLastName("Сорокина")
-              .withNickName("Mebur").withTitle("Title").withGroup("test1"));
+              .withFirstName("Екатерина6").withMiddleName("Алексеевна").withLastName("Сорокина").withNickName("Mebur").withTitle("Title")
+              .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withGroup("test2"));
     }
   }
 
