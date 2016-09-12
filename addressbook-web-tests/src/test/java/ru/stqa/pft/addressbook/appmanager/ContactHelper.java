@@ -131,9 +131,9 @@ public class ContactHelper extends HelperBase {
       String firstName = row.findElement(By.cssSelector("td:nth-of-type(3)")).getText();
       String lastName = row.findElement(By.cssSelector("td:nth-of-type(2)")).getText();
       int id = Integer.parseInt(row.findElement(By.tagName("input")).getAttribute("value"));
-      String[] phones = cells.get(5).getText().split("\n");
+      String AllPhones = cells.get(5).getText();
       contactCache.add(new ContactData().withId(id).withFirstName(firstName).withLastName(lastName)
-              .withHomePhone(phones[0]).withMobilePhone(phones[1]).withWorkPhone(phones[2]));
+              .withAllPhones(AllPhones));
     }
     return new Contacts(contactCache);
   }
