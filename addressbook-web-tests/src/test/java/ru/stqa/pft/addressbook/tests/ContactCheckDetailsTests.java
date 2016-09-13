@@ -48,7 +48,7 @@ public class ContactCheckDetailsTests extends TestBase {
     }
     if (!(contact.getEmail2().equals(""))) {
       if ((contact.getEmail2().length()) > 1) {
-        String mail = contact.getEmail3();
+        String mail = contact.getEmail2();
         if (!((mail.indexOf("@")) == -1)) {
           String s = mail.substring(mail.indexOf("@") + 1, mail.length());
           contact.withEmail2(contact.getEmail2() + " (www." + s + ")");
