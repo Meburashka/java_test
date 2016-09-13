@@ -15,7 +15,7 @@ public class ContactCreationTests extends TestBase {
     public void testContactCreation() {
         app.goTo().homePage();
         Contacts before = app.contact().all();
-        File photo = new File("addressbook-web-tests/src/test/resources/stru.jpg");
+        File photo = new File("src/test/resources/stru.jpg");
         ContactData contact = new ContactData()
                 .withFirstName("Екатерина6").withMiddleName("Алексеевна").withLastName("Сорокина").withNickName("Mebur").withTitle("Title")
                 .withHomePhone("111").withMobilePhone("222").withWorkPhone("333").withEmail("k@k.ru").withEmail2("y@y.ru")
