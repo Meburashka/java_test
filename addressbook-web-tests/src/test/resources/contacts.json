@@ -1,0 +1,23 @@
+[
+  {
+    "firstName": "firstName 0",
+    "middleName": "middleName 0",
+    "lastName": "lastName 0",
+    "nickName": "nick 0",
+    "group": "name 0"
+  },
+  {
+    "firstName": "firstName 1",
+    "middleName": "middleName 1",
+    "lastName": "lastName 1",
+    "nickName": "nick 1",
+    "group": "name 1"
+  },
+  {
+    "firstName": "firstName 2",
+    "middleName": "middleName 2",
+    "lastName": "lastName 2",
+    "nickName": "nick 2",
+    "group": "name 2"
+  }
+]
