@@ -65,7 +65,7 @@ public class ContactCreationTests extends TestBase {
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }
 
-  @Test(dataProvider = "validContactsFromJson")
+/*  @Test(dataProvider = "validContactsFromJson")
   public void testContactCreationJson(ContactData contact) {
     app.goTo().homePage();
     Contacts before = app.contact().all();
@@ -74,7 +74,7 @@ public class ContactCreationTests extends TestBase {
     Contacts after = app.contact().all();
     assertThat(after, equalTo(
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
-  }
+  }*/
 
   @Test
   public void testBadContactCreation() {

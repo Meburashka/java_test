@@ -53,7 +53,7 @@ public class GroupCreationTests extends TestBase {
     }
   }
 
-  @Test(dataProvider = "validGroupsFromXml")
+/*  @Test(dataProvider = "validGroupsFromXml")
   public void testGroupCreationXml(GroupData group) {
     app.goTo().groupPage();
     Groups before = app.group().all();
@@ -62,9 +62,9 @@ public class GroupCreationTests extends TestBase {
     Groups after = app.group().all();
     assertThat(after, equalTo(
             before.withAdded(group.withId(after.stream().mapToInt((g) -> g.getId()).max().getAsInt()))));
-  }
+  }*/
 
-  @Test(dataProvider = "validGroupsFromXml")
+  @Test(dataProvider = "validGroupsFromJson")
   public void testGroupCreationJson(GroupData group) {
     app.goTo().groupPage();
     Groups before = app.group().all();
