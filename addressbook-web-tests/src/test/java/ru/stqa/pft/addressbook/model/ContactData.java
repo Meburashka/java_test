@@ -254,16 +254,7 @@ public class ContactData {
     return "ContactData{" +
             "id=" + id +
             ", firstName='" + firstName + '\'' +
-            ", middleName='" + middleName + '\'' +
             ", lastName='" + lastName + '\'' +
-            ", nickName='" + nickName + '\'' +
-            ", title='" + title + '\'' +
-            ", homePhone='" + homePhone + '\'' +
-            ", mobilePhone='" + mobilePhone + '\'' +
-            ", workPhone='" + workPhone + '\'' +
-            ", email='" + email + '\'' +
-            ", email2='" + email2 + '\'' +
-            ", email3='" + email3 + '\'' +
             '}';
   }
 
