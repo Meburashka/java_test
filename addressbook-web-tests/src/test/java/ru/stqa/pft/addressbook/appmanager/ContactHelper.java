@@ -35,14 +35,15 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"), contactData.getEmail());
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
-    type(By.name("address"), contactData.getAddress());
-    attach(By.name("photo"), contactData.getPhoto());
+   // type(By.name("address"), contactData.getAddress());
+   // attach(By.name("photo"), contactData.getPhoto());
 
-    if (creation) {
+    //не работает с БД
+    /*if (creation) {
       new Select(wd.findElement(By.name("new_group"))).selectByVisibleText(contactData.getGroup());
     } else {
       Assert.assertFalse(isElementPresent(By.name("new_group")));
-    }
+    }*/
   }
 
   public void submitContactCreation() {
@@ -71,7 +72,9 @@ public class ContactHelper extends HelperBase {
 
   public void create(ContactData contact) {
     initContactCreation();
-    fillContactForm(contact, true);
+  //  fillContactForm(contact, true);
+    //не работает при сравнении с БД
+    fillContactForm(contact, false);
     submitContactCreation();
     contactCache = null;
     returnToHomePageContact();
