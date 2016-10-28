@@ -3,10 +3,13 @@ package ru.stqa.pft.addressbook.tests;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
 import com.thoughtworks.xstream.XStream;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 import ru.stqa.pft.addressbook.model.ContactData;
 import ru.stqa.pft.addressbook.model.Contacts;
+import ru.stqa.pft.addressbook.model.GroupData;
+import ru.stqa.pft.addressbook.model.Groups;
 
 import java.io.BufferedReader;
 import java.io.File;
@@ -65,7 +68,7 @@ public class ContactCreationTests extends TestBase {
             before.withAdded(contact.withId(after.stream().mapToInt((c) -> c.getId()).max().getAsInt()))));
   }*/
 
-  @Test(dataProvider = "validContactsFromJson")
+  /*@Test(dataProvider = "validContactsFromJson")
   public void testContactCreationJson(ContactData contact) {
     app.goTo().homePage();
     Contacts before = app.db().contacts();
@@ -89,5 +92,25 @@ public class ContactCreationTests extends TestBase {
     Contacts after = app.db().contacts();
     assertThat(after, equalTo(before));
     verifyContactListInUI();
+  }*/
+
+  @BeforeMethod
+  public void ensurePreconditions() {
+    if (app.db().groups().size() == 0) {
+      app.goTo().groupPage();
+      app.group().create(new GroupData().withName("Test1"));
+    }
+  }
+
+  @Test
+  public void testContactCreation() {
+    Groups groups = app.db().groups();
+    ContactData newContact = new ContactData().withFirstName("test_name").withLastName("test_surname")
+            .inGroup(groups.iterator().next());
+    app.goTo().homePage();
+    app.contact().initContactCreation();
+    app.contact().fillContactForm(newContact, true);
+    app.contact().submitContactCreation();
+    app.contact().returnToHomePageContact();
   }
 }
