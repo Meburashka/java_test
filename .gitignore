@@ -15,3 +15,9 @@ gradle-app.setting
 *.gradle
 .idea/workspace.xml
 *.log
+addressbook-web-tests/.idea/libraries/Gradle__antlr_antlr_2_7_7.xml
+*.xml
+*.xml
+addressbook-web-tests/.idea/workspace.xml
+*.xml
+*.iml
