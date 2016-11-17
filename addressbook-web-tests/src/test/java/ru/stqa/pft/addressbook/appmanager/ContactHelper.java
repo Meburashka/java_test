@@ -35,8 +35,8 @@ public class ContactHelper extends HelperBase {
     type(By.name("email"), contactData.getEmail());
     type(By.name("email2"), contactData.getEmail2());
     type(By.name("email3"), contactData.getEmail3());
-   // type(By.name("address"), contactData.getAddress());
-   // attach(By.name("photo"), contactData.getPhoto());
+    // type(By.name("address"), contactData.getAddress());
+    // attach(By.name("photo"), contactData.getPhoto());
 
     if (creation) {
       if (contactData.getGroups().size() > 0) {
@@ -72,11 +72,26 @@ public class ContactHelper extends HelperBase {
     click(By.linkText("home page"));
   }
 
+  public void addingInGroupById(int id) {
+    click(By.cssSelector("select[name='to_group']"));
+    click(By.cssSelector(".right>select>option[value='" + id + "']"));
+    click(By.name("add"));
+  }
+
+  public void filterGroupsById(int id) {
+    click(By.cssSelector("#right"));
+    click(By.cssSelector("#right>select>option[value='" + id + "']"));
+  }
+
+  public void removeFromGroup() {
+    click(By.cssSelector("input[name='remove']"));
+  }
+
   public void create(ContactData contact) {
     initContactCreation();
-  //  fillContactForm(contact, true);
+    //  fillContactForm(contact, true);
     //не работает при сравнении с БД
-    fillContactForm(contact, false);
+    fillContactForm(contact, true);
     submitContactCreation();
     contactCache = null;
     returnToHomePageContact();
@@ -103,7 +118,7 @@ public class ContactHelper extends HelperBase {
     wd.navigate().back();
 
     return new ContactData().withId(contact.getId()).withCheckDetails(checkDetails);
-    }
+  }
 
   public ContactData getInfoFormEditForm(ContactData contact) {
     initContactModificationById(contact.getId());
