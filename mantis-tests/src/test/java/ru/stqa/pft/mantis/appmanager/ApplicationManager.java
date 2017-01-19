@@ -1,6 +1,5 @@
 package ru.stqa.pft.mantis.appmanager;
 
-import org.hibernate.SessionFactory;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.firefox.FirefoxDriver;
@@ -27,8 +26,8 @@ public class ApplicationManager {
   private AuthorizationHelper authorizationHelper;
   private NavigationHelper navigationHelper;
   private DbHelper dbHelper;
-//  private SessionFactory sessionFactory;
   private UserHelper userHelper;
+  private JamesHelper jamesHelper;
 
   public ApplicationManager(String browser) {
     this.browser = browser;
@@ -116,5 +115,12 @@ public class ApplicationManager {
       userHelper = new UserHelper(this);
     }
     return userHelper;
+  }
+
+  public JamesHelper james() {
+    if (jamesHelper == null) {
+      jamesHelper = new JamesHelper(this);
+    }
+    return jamesHelper;
   }
 }
