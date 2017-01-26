@@ -17,10 +17,11 @@ import static org.testng.Assert.assertEquals;
 /**
  * Created by SorEA on 25.01.2017.
  */
-public class RestTests {
+public class RestTests extends TestBase {
 
   @Test
   public void testCreateIssue() throws IOException {
+    skipIfNotFixed(1);
     Set<Issue> oldIssues = getIssues();
     Issue newIssue = new Issue().withSubject("Test issue").withDescription("New test issue");
     int issueId = createIssue(newIssue);
