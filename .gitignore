@@ -11,7 +11,7 @@ gradle-app.setting
 
 # # Work around https://youtrack.jetbrains.com/issue/IDEA-116898
 # gradle/wrapper/gradle-wrapper.properties
-*.gradle
+
 .idea/workspace.xml
 *.log
 addressbook-web-tests/.idea/libraries/Gradle__antlr_antlr_2_7_7.xml
