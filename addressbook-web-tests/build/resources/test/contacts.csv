@@ -1,0 +1,4 @@
+firstName 0;middleName 0;lastName 0;nick 0;ContactData{id=2147483647, firstName='firstName 0'}
+firstName 1;middleName 1;lastName 1;nick 1;ContactData{id=2147483647, firstName='firstName 1'}
+firstName 2;middleName 2;lastName 2;nick 2;ContactData{id=2147483647, firstName='firstName 2'}
+firstName 3;middleName 3;lastName 3;nick 3;ContactData{id=2147483647, firstName='firstName 3'}

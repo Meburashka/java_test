@@ -1,0 +1,41 @@
+[
+  {
+    "firstName": "FirstName 0",
+    "middleName": "MiddleName 0",
+    "lastName": "LastName 0",
+    "nickName": "NickName 0",
+    "title": "Title 0",
+    "homePhone": "+7(495)123-11-20",
+    "mobilePhone": "8 495 123-21-20",
+    "workPhone": "84951233120",
+    "email": "Email@pochta.ru0",
+    "email2": "Email2@pochta.ru0",
+    "email3": "Email3@pochta.ru0"
+  },
+  {
+    "firstName": "FirstName 1",
+    "middleName": "MiddleName 1",
+    "lastName": "LastName 1",
+    "nickName": "NickName 1",
+    "title": "Title 1",
+    "homePhone": "+7(495)123-11-21",
+    "mobilePhone": "8 495 123-21-21",
+    "workPhone": "84951233121",
+    "email": "Email@pochta.ru1",
+    "email2": "Email2@pochta.ru1",
+    "email3": "Email3@pochta.ru1"
+  },
+  {
+    "firstName": "FirstName 2",
+    "middleName": "MiddleName 2",
+    "lastName": "LastName 2",
+    "nickName": "NickName 2",
+    "title": "Title 2",
+    "homePhone": "+7(495)123-11-22",
+    "mobilePhone": "8 495 123-21-22",
+    "workPhone": "84951233122",
+    "email": "Email@pochta.ru2",
+    "email2": "Email2@pochta.ru2",
+    "email3": "Email3@pochta.ru2"
+  }
+]

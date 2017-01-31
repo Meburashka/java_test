@@ -1,0 +1,2 @@
+199  [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testBadContactCreation
+204  [main] INFO  r.s.pft.addressbook.tests.TestBase - Start test testContactDeletion
