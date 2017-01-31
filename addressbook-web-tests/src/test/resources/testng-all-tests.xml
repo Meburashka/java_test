@@ -5,14 +5,10 @@
         <classes>
             <class name="ru.stqa.pft.addressbook.tests.GroupCreationTests"/>
             <class name="ru.stqa.pft.addressbook.tests.GroupModificationTests"/>
-            <class name="ru.stqa.pft.addressbook.tests.GroupDeletionTests"/>
-            <class name="ru.stqa.pft.addressbook.tests.ContactAddingInGroupsTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactAddressTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactCreationTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactDeleteFromGroupTests"/>
             <class name="ru.stqa.pft.addressbook.tests.ContactDeletionTests"/>
-            <class name="ru.stqa.pft.addressbook.tests.ContactModificationTests"/>
-            <class name="ru.stqa.pft.addressbook.tests.ContactPhoneTests"/>
             <class name="ru.stqa.pft.addressbook.tests.DbConnectionTest"/>
             <class name="ru.stqa.pft.addressbook.tests.HbConnectionTest"/>
         </classes>
