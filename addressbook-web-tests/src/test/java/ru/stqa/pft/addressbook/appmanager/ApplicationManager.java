@@ -1,6 +1,5 @@
 package ru.stqa.pft.addressbook.appmanager;
 
-import org.openqa.selenium.Capabilities;
 import org.openqa.selenium.Platform;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
@@ -42,19 +41,19 @@ public class ApplicationManager {
 
     dbHelper = new DbHelper();
 
-    if("".equals(properties.getProperty("selenium.server"))) {
-      if (browser.equals(BrowserType.CHROME)) {
-        wd = new ChromeDriver();
-      } else if (browser.equals(BrowserType.FIREFOX)) {
+    if ("".equals(properties.getProperty("selenium.server"))) {
+      if (browser.equals(BrowserType.FIREFOX)) {
         wd = new FirefoxDriver();
+      } else if (browser.equals(BrowserType.CHROME)) {
+        wd = new ChromeDriver();
       } else if (browser.equals(BrowserType.IE)) {
         wd = new InternetExplorerDriver();
-      } else {
-        DesiredCapabilities capabilities = new DesiredCapabilities();
-        capabilities.setBrowserName(browser);
-        capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
-        wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
       }
+    } else {
+      DesiredCapabilities capabilities = new DesiredCapabilities();
+      capabilities.setBrowserName(browser);
+      capabilities.setPlatform(Platform.fromString(System.getProperty("platform", "win7")));
+      wd = new RemoteWebDriver(new URL(properties.getProperty("selenium.server")), capabilities);
     }
     wd.manage().timeouts().implicitlyWait(0, TimeUnit.SECONDS);
     wd.get(properties.getProperty("web.baseUrl"));
