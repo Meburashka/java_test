@@ -17,7 +17,7 @@ dependencies {
     compile 'org.hibernate:hibernate-core:5.1.0.Final'
 }
 
-/*task testGroups(type: Test) {
+task testGroups(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-groups.xml'
     }
@@ -32,6 +32,7 @@ dependencies {
     }
 }
 
+/*
 task testContacts(type: Test) {
     useTestNG {
         suites 'src/test/resources/testng-contacts.xml'
